@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoVisual Pro | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="glass-panel">
+            <div class="brand">
+                <h1>AlgoVisual <span class="accent-text">Pro</span></h1>
+            </div>
+            <div class="input-section">
+                <input type="text" id="inputArray" placeholder="e.g. 10, 20, 30">
+                <button class="btn primary" onclick="loadArray()">Load</button>
+                <button class="btn secondary" onclick="generateRandom()">Generate Array</button>
+            </div>
+        </header>
+
+        <main class="stage glass-panel">
+            <div id="bar-container"></div>
+            
+            <div class="master-controls">
+                <div class="playback-group">
+                    <button class="btn ctrl" onclick="prevStep()">❮ Prev</button>
+                    <button class="btn play-btn" id="playBtn" onclick="togglePlay()">PLAY</button>
+                    <button class="btn ctrl" onclick="nextStep()">Next ❯</button>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="animation-settings">
+                    <div class="setting-item">
+                        <label>Animation Speed</label>
+                        <input type="range" id="speed" min="50" max="1000" value="500" oninput="updateSpeedLabel(this.value)">
+                    </div>
+                    <div class="speed-display"><span id="speedVal">500</span>ms</div>
+                </div>
+            </div>
+        </main>
+
+        <nav class="algo-selector">
+            <button class="btn tab" onclick="prepareSort('bubble')">Bubble Sort</button>
+            <button class="btn tab" onclick="prepareSort('selection')">Selection Sort</button>
+            <button class="btn tab" onclick="prepareSort('insertion')">Insertion Sort</button>
+        </nav>
+
+        <footer class="analysis-grid hidden" id="analysis-panel">
+            <div class="panel logic-box">
+                <h3>Execution Log</h3>
+                <div id="pseudocode-display" class="code-view"></div>
+                <div class="status-bar">
+                    <p id="status-text">Ready.</p>
+                </div>
+            </div>
+
+            <div class="panel complexity-box">
+                <h3>Complexity Analysis</h3>
+                <div class="stat-row"><span>Worst Case</span><strong id="worst-case">--</strong></div>
+                <div class="stat-row"><span>Best Case</span><strong id="best-case">--</strong></div>
+                <div class="stat-row"><span>Space</span><strong id="space-complexity">--</strong></div>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
