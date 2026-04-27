@@ -1,0 +1,48 @@
+:root {
+    --bg: #0f172a; --panel: #1e293b; --primary: #6366f1;
+    --accent: #f59e0b; --success: #10b981; --text: #f8fafc;
+    --border: #334155;
+}
+
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; }
+.dashboard { width: 100%; max-width: 1000px; }
+
+.glass-panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+.accent-text { color: var(--primary); font-weight: bold; }
+
+/* Bar Visualization */
+#bar-container { height: 300px; display: flex; align-items: flex-end; justify-content: center; gap: 10px; margin-bottom: 25px; }
+.bar { width: 40px; background: linear-gradient(to top, var(--primary), #818cf8); border-radius: 4px; display: flex; justify-content: center; align-items: flex-end; padding-bottom: 8px; font-weight: bold; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.bar.comparing { background: var(--accent); transform: scale(1.05); box-shadow: 0 0 15px var(--accent); }
+.bar.sorted { background: var(--success); }
+
+/* Master Control Bar Layout */
+.master-controls {
+    display: flex; align-items: center; justify-content: center;
+    background: #0f172a; padding: 15px 25px; border-radius: 10px;
+    border: 1px solid var(--border); gap: 30px;
+}
+
+.playback-group { display: flex; gap: 10px; align-items: center; }
+.animation-settings { display: flex; align-items: center; gap: 15px; }
+.setting-item { display: flex; flex-direction: column; }
+.setting-item label { font-size: 0.7rem; text-transform: uppercase; color: #94a3b8; margin-bottom: 4px; }
+
+.divider { width: 1px; height: 40px; background: var(--border); }
+.speed-display { font-family: monospace; color: var(--accent); font-weight: bold; min-width: 60px; }
+
+/* Buttons */
+.btn { padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; transition: 0.2s; }
+.primary { background: var(--primary); color: white; }
+.secondary { background: #334155; color: white; }
+.play-btn { background: var(--success); color: white; min-width: 110px; letter-spacing: 1px; }
+.ctrl { background: #475569; color: white; }
+.tab { background: transparent; border: 1px solid var(--border); color: #94a3b8; margin-right: 8px; }
+.tab:hover { background: var(--primary); color: white; }
+
+/* Analysis Grid */
+.analysis-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; }
+.code-view { background: #000; padding: 15px; border-radius: 8px; font-family: 'Fira Code', monospace; font-size: 0.85rem; margin-bottom: 15px; }
+.code-line.active { color: var(--accent); background: #1e293b; border-left: 3px solid var(--accent); padding-left: 5px; }
+.stat-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.hidden { display: none; }
